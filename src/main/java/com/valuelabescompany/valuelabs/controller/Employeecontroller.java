@@ -18,6 +18,7 @@ public class Employeecontroller {
 	@Autowired
 	Employeeservice employeeservice;
 
+	// this is for save employee
 	@PostMapping("/save/employeee")
 	public String saveEmployee(@RequestBody Employee employee) {
 		employee.setJoiningdate(new Date());
