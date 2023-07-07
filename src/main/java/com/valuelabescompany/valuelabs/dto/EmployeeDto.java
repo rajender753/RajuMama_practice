@@ -16,6 +16,18 @@ public class EmployeeDto {
 	String projectname;
 	
 	String reportingmanager;
+	
+	AddressDto addressDto;
+	
+	
+
+	public AddressDto getAddressDto() {
+		return addressDto;
+	}
+
+	public void setAddressDto(AddressDto addressDto) {
+		this.addressDto = addressDto;
+	}
 
 	public Integer getEmpId() {
 		return empId;

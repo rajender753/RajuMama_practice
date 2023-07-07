@@ -28,6 +28,7 @@ public class Employeecontroller {
 			return "Employee Id Mandatory";
 		}
 		
+		
 		Employee employee = new Employee();
 		
 		employee.setEmpId(employeeDto.getEmpId());
@@ -36,6 +37,9 @@ public class Employeecontroller {
 		employee.setReportingmanager(employeeDto.getReportingmanager());
 		employee.setSalary(employeeDto.getSalary());
 		employee.setJoiningdate(new Date());
+		
+//		printing Address
+		System.out.println(employeeDto.getAddressDto());
 		
 		
 		return employeeservice.saveEmployee(employee);
