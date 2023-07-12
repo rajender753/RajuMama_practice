@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.valuelabescompany.valuelabs.dto.EmployeeDto;
 import com.valuelabescompany.valuelabs.entity.Employee;
 import com.valuelabescompany.valuelabs.service.Employeeservice;
 
@@ -20,7 +21,25 @@ public class Employeecontroller {
 
 	// this is for save employee
 	@PostMapping("/save/employeee")
-	public String saveEmployee(@RequestBody Employee employee) {
+	public String saveEmployee(@RequestBody EmployeeDto employeedto) {
+		
+		if(employeedto.getEmpId()==null) {
+			return "Empid mandatory";
+		}
+		
+		Employee employee=new Employee();
+		employee.setEmpId(employeedto.getEmpId());
+		employee.setEmpName(employeedto.getEmpName());
+		employee.setSalary(employeedto.getSalary());
+		employee.setProjectname(employeedto.getProjectname());
+		employee.setReportingmanager(employeedto.getReportingmanager());
+		
+		
+		
+		
+		
+		
+		
 		employee.setJoiningdate(new Date());
 
 		return employeeservice.saveEmployee(employee);
