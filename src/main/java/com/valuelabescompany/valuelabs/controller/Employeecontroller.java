@@ -27,6 +27,7 @@ public class Employeecontroller {
 	public ValueLabsResponse saveEmployee(@RequestBody EmployeeDto employeeDto) {
 
 		ValueLabsResponse response = new ValueLabsResponse();
+		
 		List<String> errors = new ArrayList<>();
 
 		// validations
@@ -36,13 +37,16 @@ public class Employeecontroller {
 		if (employeeDto.getEmpName() == null) {
 			errors.add("Employee Name is Mandatory");
 		}
+		if(employeeDto.getReportingmanager() == null) {
+			errors.add("Reporting Manager is Mandatory");
+		}
 		/*
 		 * if List of errors size is greater then zero it means request has erros return
 		 * error response
 		 */
 
 		if (errors.size() > 0) {
-			response.setStatus(200);
+			response.setStatus(500);
 			response.setMessage("Please fill all mandatory fields");
 			response.setResponseBody(errors);
 		}
